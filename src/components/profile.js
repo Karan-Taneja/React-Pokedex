@@ -6,7 +6,7 @@ import Axios from 'axios';
 
 
 const Profile = (props) => {
-
+    return <Type type="Grass"/>
 }
 
 export default Profile;
