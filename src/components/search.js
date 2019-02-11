@@ -1,5 +1,7 @@
 import {React, Component} from 'react';
-import './search.css'
+import Pokemon from './pokemon';
+import './search.css';
+
 
 class Search extends Component {
 
