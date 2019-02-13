@@ -1,0 +1,14 @@
+h4{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.center{
+    justify-content: center;
+    text-align: center;
+}
+
+.d-flex{
+    display:flex;
+}
