@@ -1,0 +1,25 @@
+.statsBox{
+    width: 60%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: space-around;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.stat{
+    width: 8%;
+    text-align: center;
+}
+
+.statName{
+    font-size: 15px;
+    font-weight: 400;
+    color: gray;
+    display: block;
+}
+
+.statVal{
+    font-size: 20px;
+    font-weight: 700;
+}
