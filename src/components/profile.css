@@ -1,0 +1,51 @@
+h4{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.center{
+    justify-content: center;
+    text-align: center;
+}
+
+.art-box{
+    background-color: rgb(223, 223, 223);
+}
+
+.art{
+    max-width: 100%;
+}
+
+.id-box{
+    font-size: 2vmax;
+    background-color: rgb(36, 36, 36);
+}
+
+.image-box{
+    width: 100%;
+}
+
+.name-box{
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    background-color: rgb(223, 223, 223);
+    padding-bottom: 3px;
+    color: white;
+    text-shadow: 0px 2px rgb(0, 0, 0, 0.25);
+}
+
+.poke-name{
+    font-size: 5vmin;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: #E12245
+}
+
+.bottom-box{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    min-height: 30px;
+    max-height: 40px;
+    background-color: #E12245
+}
