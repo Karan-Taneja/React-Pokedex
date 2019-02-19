@@ -7,6 +7,7 @@ class App extends Component {
   state = {
     activeView: 0,
     pokemon:{},
+    move:{},
   }
 
   toggleState = () => {
