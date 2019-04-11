@@ -11,26 +11,26 @@ class Search extends Component {
       input: '',
       results: [],
       display: true,
-    }
-  }
+    };
+  };
 
   handleInput = (e) => {
-    this.filter(e.target.value)
+    this.filter(e.target.value);
   };
 
   filter = (input) => {
-    let pkmn = this.props.pkmn || "null"
-    let results = []
+    let pkmn = this.props.pkmn || "null";
+    let results = [];
     for(let i = 0; i < Pokemon.length; i++){
       if(Pokemon[i].toLowerCase().includes(input.toLowerCase()) && Pokemon[i].toLowerCase() !== pkmn.toLowerCase()) results.push(Pokemon[i])
-    }
-    results = results.slice(0, 10)
-    this.setState({input: input, results:results, display: true})
-  }
+      if (results.length > 10) break;
+    };
+    this.setState({input: input, results:results, display: true});
+  };
 
   closeResults = (e) => {
-    if(!e.target.getAttribute('open')) this.setState({display: false})
-  }
+    if(!e.target.getAttribute('open')) this.setState({display: false});
+  };
 
   render() {
     return (
@@ -42,11 +42,9 @@ class Search extends Component {
         : <></>
       }
       </>
-    )
-  }
-
-
-}
+    );
+  };
+};
 
 export default Search;
 
