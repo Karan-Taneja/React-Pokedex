@@ -8,7 +8,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 class List extends Component {
 
     state = {
-        pokemon: localStorage.getItem('pokemon').split(",") || Pokemon.slice(0, 20),
+        pokemon: JSON.parse(localStorage.getItem('pokemon')) || Pokemon.slice(0, 20),
         hidden: false,
     };
 
@@ -26,12 +26,12 @@ class List extends Component {
         else{
             this.setState({pokemon: newMons, hidden: false})
         };
-        localStorage.setItem('pokemon', newMons);
+        localStorage.setItem('pokemon', JSON.stringify(newMons));
     };
 
     componentDidMount(){
         if(localStorage.getItem('pokemon')){
-            let pkmn = localStorage.getItem('pokemon').split(",");
+            let pkmn = JSON.parse(localStorage.getItem('pokemon'))
             this.setState({pokemon: pkmn});
         };
     };
