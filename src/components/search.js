@@ -19,7 +19,7 @@ class Search extends Component {
   };
 
   filter = (input) => {
-    let pkmn = this.props.pkmn
+    let pkmn = this.props.pkmn || "null"
     let results = []
     for(let i = 0; i < Pokemon.length; i++){
       if(Pokemon[i].toLowerCase().includes(input.toLowerCase()) && Pokemon[i].toLowerCase() !== pkmn.toLowerCase()) results.push(Pokemon[i])
@@ -35,7 +35,7 @@ class Search extends Component {
   render() {
     return (
       <>
-      <input className="form-control mr-sm-2 searchbar" type="search" placeholder="Search" aria-label="Search" value={this.state.input} onChange={this.handleInput}/>
+      <input className="form-control mr-sm-2 searchbar" type="search" placeholder="Search" aria-label="Search" onChange={this.handleInput}/>
       {this.state.input.length > 0 ? 
         this.state.display ?
         <Results results={this.state.results} close={this.closeResults}/>:  <></>
