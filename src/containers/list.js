@@ -44,7 +44,7 @@ class List extends Component {
             <InfiniteScroll
                 pageStart={0}
                 loadMore={this.onClickMore}
-                hasMore={true || false}
+                hasMore={!this.state.hidden}
                 loader={button}
             >
             {pokemon.map((item, i) => {
