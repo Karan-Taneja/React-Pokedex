@@ -5,3 +5,23 @@ h4{
 p{
     color: black;
 }
+
+.moveModal{
+    position: absolute;
+    top: 150px;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.black-bg{
+    background-color: rgba(0,0,0, 0.9);
+    height: 115%;
+    position: absolute;
+    width: 100%;
+}
+
+.negMargin{
+    margin-top: -10px;
+}

@@ -800,12 +800,12 @@ const Pokemon = [
 	"Guzzlord",
 	"Necrozma",
 	"Magearna",
-  	"Marshadow",
-  	"Poipole",
-  	"Naganadel",
-  	"Stakataka",
-  	"Blacephalon",
-  	"Zeraora"
+	"Marshadow",
+	"Poipole",
+	"Naganadel",
+	"Stakataka",
+	"Blacephalon",
+	"Zeraora"
 ]
 
 export default Pokemon;

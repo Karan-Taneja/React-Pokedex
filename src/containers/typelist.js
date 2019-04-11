@@ -2,9 +2,7 @@ import React from 'react';
 import './typelist.css';
 
 const Typelist = (props) => {
-
    const {data} = props;
-   console.log(data)
    return (<div className = "typeList center d-flex">
        {data.map((type, i) => {
 

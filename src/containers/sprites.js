@@ -10,9 +10,9 @@ const Sprites = (props) => {
             if(sprite !== null)
             return (
             <div className="d-flex" key={i}>
-                <img src={sprite}/>
+                <img src={sprite} alt="missingSprite.png"/>
             </div>)
-            else return;
+            else return <></>;
         })}
     </div>)
 }

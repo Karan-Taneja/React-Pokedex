@@ -6,7 +6,7 @@ const Movelist = (props) => {
     const {data} = props;
     const onClickMove = props.onClickMove;
 
-    return (<div className="moveList">
+    return (<div className="moveList mb-2">
         {data.map((move, i) => {
             let name = ""
             const arr = move.name.split("-")
@@ -14,7 +14,7 @@ const Movelist = (props) => {
                 arr[i] = arr[i].slice(0,1).toUpperCase() + arr[i].slice(1)
             }
             name = arr.join(" ")
-            return <div className="move" key={i} value={move.name} onClick={onClickMove}>{name}</div>
+            return <div className="move" key={i} name="modal" value={move.name} onClick={onClickMove}>{name}</div>
         })}
     </div>)
 }

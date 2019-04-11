@@ -1,0 +1,15 @@
+.result:hover{
+  background-color: rgb(202, 202, 202);
+}
+
+.result{
+  width: 100%;
+  padding-left: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.last-result{
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}

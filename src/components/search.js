@@ -1,69 +1,53 @@
 import React, { Component } from 'react'
-import Pokemon from './components/pokemon';
+import Pokemon from './pokemon';
+import Results from '../containers/results';
 import './search.css';
 
-
-
-class App extends Component {
+class Search extends Component {
   constructor(props) {
     super();
 
     this.state = {
       input: '',
-      list: Pokemon
+      results: [],
+      display: true,
     }
   }
 
-  handleInputChange = e => {
-    this.setState({
-      input: e.target.value,
-
-    });
+  handleInput = (e) => {
+    this.filter(e.target.value)
   };
 
+  filter = (input) => {
+    let pkmn = this.props.pkmn
+    let results = []
+    for(let i = 0; i < Pokemon.length; i++){
+      if(Pokemon[i].toLowerCase().includes(input.toLowerCase()) && Pokemon[i].toLowerCase() !== pkmn.toLowerCase()) results.push(Pokemon[i])
+    }
+    results = results.slice(0, 10)
+    this.setState({input: input, results:results, display: true})
+  }
 
-
-  //   inputResults() {
-  //     this.handleInputChange(this.input).then(e => {
-  //         this.setState({list: e.value})
-  //     });
-  // }
+  closeResults = (e) => {
+    if(!e.target.getAttribute('open')) this.setState({display: false})
+  }
 
   render() {
-    const { filteredList } = this.state.list
-      .filter(e => this.state.input === '' || e.includes(this.state.input))
-      .map((e, index) => <li key={index}>{e}</li>);
-
-
-
-
     return (
       <>
-        <h3 className="container">Pursuit Pokedex</h3>
-        <div className="container">
-
-          <input type="text" onChange={this.handleInputChange} value={this.state.input} name="search" placeholder="Search..."></input>
-        </div>
-        <br />
-
-
-        <ul className="list-group" id="myList">
-          <li className="list-group-item">Hi</li>
-          <li className="list-group-item">Shi</li>
-          <li className="list-group-item">Thirm</li>
-          <li className="list-group-item">Fou</li>
-        </ul>
-
-        <filteredList />
-
-
-        }
-        
-</>
-    );
+      <input className="form-control mr-sm-2 searchbar" type="search" placeholder="Search" aria-label="Search" value={this.state.input} onChange={this.handleInput}/>
+      {this.state.input.length > 0 ? 
+        this.state.display ?
+        <Results results={this.state.results} close={this.closeResults}/>:  <></>
+        : <></>
+      }
+      </>
+    )
   }
+
+
 }
-      
+
 export default Search;
 
 
