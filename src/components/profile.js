@@ -6,6 +6,7 @@ import Typelist from '../containers/typelist';
 import Sprites from '../containers/sprites';
 import Stats from '../containers/stats';
 import Modal from './modal';
+import Loading from './loading';
 import Axios from 'axios';
 
 class Profile extends Component {
@@ -14,7 +15,6 @@ class Profile extends Component {
     super(props)
 
     this.state = {
-      cachedName: null,
       name: "",
       id: null,
       type: [],
@@ -23,7 +23,8 @@ class Profile extends Component {
       moves: [],
       chain: {},
       modal: {},
-      isOpen: false
+      isOpen: false,
+      isLoading: true,
     }
   }
 
@@ -81,10 +82,8 @@ class Profile extends Component {
 
     return Axios.get(`https://pokeapi.co/api/v2/pokemon/${pkmn}`)
       .then((data) => {
-
         const res = JSON.parse(data.request.response);
         const mon = {};
-
         const spriteRes = Object.values(res.sprites);
         const movesRes = res.moves;
         const typesRes = res.types;
@@ -94,9 +93,7 @@ class Profile extends Component {
         const moves = [];
         const types = [];
         const stats = [];
-
         const fourI = [2, 3, 0, 1];
-
         let counter = 0;
 
         for (let i = 0; i < spriteRes.length; i++) {
@@ -146,7 +143,7 @@ class Profile extends Component {
             return mon;
           });
       });
-  }
+  };
 
   componentDidMount() {
     this.getPokemon()
@@ -160,8 +157,9 @@ class Profile extends Component {
         moves: mon.moves,
         chain: mon.chain,
         modal: {},
-        isOpen: false
-      })
+        isOpen: false,
+        isLoading: false,
+      });
     });
   };
 
@@ -178,15 +176,17 @@ class Profile extends Component {
             moves: mon.moves,
             chain: mon.chain,
             modal: {},
-            isOpen: false
-          })
-        })
-    }
-  }
+            isOpen: false,
+          });
+        });
+    };
+  };
 
   render() {
     let pkmn = this.state;
-    return (this.state.isOpen ?
+    return (
+      this.state.isLoading ? <Loading /> :
+      this.state.isOpen ?
       <div onClick={this.closeModal} className="max marginTop">
         <Modal move={this.state.modal} />
         <div className="d-flex center">

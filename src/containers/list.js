@@ -8,42 +8,46 @@ import InfiniteScroll from 'react-infinite-scroller';
 class List extends Component {
 
     state = {
-        pokemon: Pokemon.slice(0, 20),
+        pokemon: localStorage.getItem('pokemon').split(",") || Pokemon.slice(0, 20),
         hidden: false,
-    }
+    };
 
-    onClickMore = () => {
+    loadMore = () => {
         const {pokemon} = this.state;
         const s = pokemon.length;
         let e = pokemon.length + 20;
         if(Pokemon.length < pokemon.length + 20){
             e = pokemon.length + (Pokemon.length - pokemon.length);
         };
-        const newMons = pokemon.concat(Pokemon.slice(s,e))
-        
+        const newMons = pokemon.concat(Pokemon.slice(s,e));
         if(Pokemon.length < pokemon.length + 20){
             this.setState({pokemon: newMons, hidden: true})
         }
         else{
             this.setState({pokemon: newMons, hidden: false})
-        }
-    }
+        };
+        localStorage.setItem('pokemon', newMons);
+    };
+
+    componentDidMount(){
+        if(localStorage.getItem('pokemon')){
+            let pkmn = localStorage.getItem('pokemon').split(",");
+            this.setState({pokemon: pkmn});
+        };
+    };
 
     render() {
         const {pokemon} = this.state;
-
         let button = <div className="row" key={0}>
-            <div className="button" onClick={this.onClickMore}>Loading</div>
+            <div className="button" onClick={this.loadMore}>Loading</div>
         </div>
-
         if(this.state.hidden){
             button = <></>
         }
-
         return (<div>
             <InfiniteScroll
                 pageStart={0}
-                loadMore={this.onClickMore}
+                loadMore={this.loadMore}
                 hasMore={!this.state.hidden}
                 loader={button}
             >
@@ -63,9 +67,8 @@ class List extends Component {
                 return <Link to={`/${name}`} key={i}><Card value={name} name={item} index={id}/></Link>
             })}  
             </InfiniteScroll>
-         </div>)
-    }
-
-}
+         </div>);
+    };
+};
 
 export default List;
