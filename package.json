@@ -9,8 +9,7 @@
     "react-dom": "^16.8.1",
     "react-infinite-scroller": "^1.2.4",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.4",
-    "snyk": "^1.189.0"
+    "react-scripts": "2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
