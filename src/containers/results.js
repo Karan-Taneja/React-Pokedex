@@ -26,7 +26,7 @@ const Results = (props) => {
 
         pkmn = pkmn.toLowerCase();
         if(i === props.results.length -1) return <Link to={`/${pkmn}`} key={i} onClick={props.close}><Result name={e} last={true} close={props.close}/></Link>;
-        return <Link to={`/${pkmn}`} key={i} onClick={props.close}><Result name={e} close={props.close}/></Link>
+        return <Link to={`/${pkmn}`} key={i} pos={i} onClick={props.close}><Result name={e} close={props.close}/></Link>
       })}
     </div> : <></>
   )

@@ -10,6 +10,10 @@ class Search extends Component {
     this.state = {
       input: '',
       results: [],
+      selected: {
+        name: '',
+        position: 0,
+      },
       display: true,
     };
   };
@@ -25,7 +29,7 @@ class Search extends Component {
       if(Pokemon[i].toLowerCase().includes(input.toLowerCase()) && Pokemon[i].toLowerCase() !== pkmn.toLowerCase()) results.push(Pokemon[i])
       if (results.length > 10) break;
     };
-    this.setState({input: input, results:results, display: true});
+    this.setState({input: input, results:results, display: true, selected:{name:'', position: 0}});
   };
 
   closeResults = (e) => {
@@ -38,7 +42,7 @@ class Search extends Component {
       <input className="form-control mr-sm-2 searchbar" type="search" placeholder="Search" aria-label="Search" onChange={this.handleInput}/>
       {this.state.input.length > 0 ? 
         this.state.display ?
-        <Results results={this.state.results} close={this.closeResults}/>:  <></>
+        <Results results={this.state.results} selected={{ name: '', position: 0,}} close={this.closeResults}/>:  <></>
         : <></>
       }
       </>

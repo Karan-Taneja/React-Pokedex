@@ -4,8 +4,8 @@ import './loading.css';
 
 const Loading = () => {
   return (<div className="loading-box">
-    <div className="spin">
-    <img src={Loader} alt="loading..." style={{width:'200px','height':'auto'}}/>
+    <div>
+      <img className="spin" src={Loader} alt="loading..." style={{width:'200px','height':'auto'}}/>
     </div>
   </div>)
 }
